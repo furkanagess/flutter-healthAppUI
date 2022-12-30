@@ -17,9 +17,9 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
       body: Column(
         children: [
           buildRowButtons(),
+          SizedBox(height: 30),
           buildCard(context),
           buildText(context),
-          Spacer(),
           buildCategories(),
           Spacer(),
         ],
@@ -28,10 +28,13 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
     );
   }
 
-  SizedBox buildCategories() {
-    return SizedBox(
-      height: 100,
-      child: buildListViewCategories(),
+  Widget buildCategories() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
+        height: 100,
+        child: buildListViewCategories(),
+      ),
     );
   }
 
@@ -44,7 +47,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
         child: Column(
           children: [
             CircleAvatar(
-              child: Icon(Icons.abc_outlined),
+              child: Icon(Icons.free_breakfast_outlined),
             ),
             Text(categories[index]),
           ],
@@ -54,14 +57,17 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
   }
 
   Widget buildText(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Text(
-          AppStringConstants.instance!.categories,
-          style: Theme.of(context).textTheme.headline4,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            AppStringConstants.instance!.categories,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+        ],
+      ),
     );
   }
 
@@ -92,7 +98,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
                   title: Text("Random Food"),
                   subtitle: Text("Description"),
                   trailing: CircleAvatar(
-                    child: Text("AAAA"),
+                    child: Text("25 TL"),
                   ),
                 ),
               ),
@@ -103,32 +109,35 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
     );
   }
 
-  Row buildRowButtons() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
+  Widget buildRowButtons() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: StadiumBorder(),
+            ),
+            onPressed: () {},
+            child: Text("Hello"),
           ),
-          onPressed: () {},
-          child: Text("Hello"),
-        ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: StadiumBorder(),
+            ),
+            onPressed: () {},
+            child: Text("Hello"),
           ),
-          onPressed: () {},
-          child: Text("Hello"),
-        ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: StadiumBorder(),
+            ),
+            onPressed: () {},
+            child: Text("Hello"),
           ),
-          onPressed: () {},
-          child: Text("Hello"),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -157,15 +166,15 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
       items: [
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.accessibility,
+            Icons.menu_book_outlined,
           ),
-          label: "data",
+          label: "Market",
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.accessibility,
+            Icons.health_and_safety_outlined,
           ),
-          label: "data",
+          label: "Health",
         ),
       ],
     );
