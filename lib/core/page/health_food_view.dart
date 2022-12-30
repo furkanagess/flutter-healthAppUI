@@ -19,7 +19,9 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
           buildRowButtons(),
           buildCard(context),
           buildText(context),
-          buildCategories()
+          Spacer(),
+          buildCategories(),
+          Spacer(),
         ],
       ),
       bottomNavigationBar: buildBottomNavigationBar(),
@@ -51,10 +53,15 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
     );
   }
 
-  Text buildText(BuildContext context) {
-    return Text(
-      "Categories",
-      style: Theme.of(context).textTheme.headline4,
+  Widget buildText(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          AppStringConstants.instance!.categories,
+          style: Theme.of(context).textTheme.headline4,
+        ),
+      ],
     );
   }
 
@@ -130,7 +137,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Text(
-        AppStrings().hello,
+        AppStringConstants.instance!.hello,
         style: Theme.of(context).textTheme.headline5,
       ),
       centerTitle: false,
@@ -149,11 +156,15 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.accessibility),
+          icon: Icon(
+            Icons.accessibility,
+          ),
           label: "data",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.accessibility),
+          icon: Icon(
+            Icons.accessibility,
+          ),
           label: "data",
         ),
       ],
