@@ -9,6 +9,10 @@ class HealthyFoodView extends StatefulWidget {
 }
 
 class _HealthyFoodViewState extends State<HealthyFoodView> {
+  final randomFood = "Random Food";
+  final description = "Description";
+  final money = "25 TL";
+  var hello = "Hello";
   List<String> categories = ["Breakfast", "Lunch", "Dinner", "Snack"];
   @override
   Widget build(BuildContext context) {
@@ -82,30 +86,32 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
-      itemBuilder: (context, index) => Card(
-        margin: EdgeInsets.symmetric(horizontal: 20.0),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.6,
-          child: Column(
-            children: [
-              Expanded(
-                flex: 6,
-                child: Placeholder(),
-              ),
-              Expanded(
-                flex: 2,
-                child: ListTile(
-                  title: Text("Random Food"),
-                  subtitle: Text("Description"),
-                  trailing: CircleAvatar(
-                    child: Text("25 TL"),
+      itemBuilder: (context, index) {
+        return Card(
+          margin: EdgeInsets.symmetric(horizontal: 20.0),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.6,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 6,
+                  child: Placeholder(),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: ListTile(
+                    title: Text(randomFood),
+                    subtitle: Text(description),
+                    trailing: CircleAvatar(
+                      child: Text(money),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -120,21 +126,21 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
               shape: StadiumBorder(),
             ),
             onPressed: () {},
-            child: Text("Hello"),
+            child: Text(hello),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: StadiumBorder(),
             ),
             onPressed: () {},
-            child: Text("Hello"),
+            child: Text(hello),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: StadiumBorder(),
             ),
             onPressed: () {},
-            child: Text("Hello"),
+            child: Text(hello),
           ),
         ],
       ),
