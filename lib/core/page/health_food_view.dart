@@ -20,11 +20,11 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
       appBar: buildAppBar(),
       body: Column(
         children: [
-          buildRowButtons(),
+          Expanded(flex: 1, child: buildRowButtons()),
           SizedBox(height: 30),
-          buildCard(context),
-          buildText(context),
-          buildCategories(),
+          Expanded(flex: 3, child: buildCard(context)),
+          Expanded(flex: 2, child: buildText(context)),
+          Expanded(flex: 1, child: buildCategories()),
           Spacer(),
         ],
       ),
@@ -34,7 +34,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
 
   Widget buildCategories() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       child: SizedBox(
         height: 100,
         child: buildListViewCategories(),
@@ -62,7 +62,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
 
   Widget buildText(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -77,7 +77,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
 
   SizedBox buildCard(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.36,
       child: buildCardListView(),
     );
   }
@@ -95,7 +95,7 @@ class _HealthyFoodViewState extends State<HealthyFoodView> {
               children: [
                 Expanded(
                   flex: 6,
-                  child: Placeholder(),
+                  child: Image.asset("assets/images/chicken.png"),
                 ),
                 Expanded(
                   flex: 2,
